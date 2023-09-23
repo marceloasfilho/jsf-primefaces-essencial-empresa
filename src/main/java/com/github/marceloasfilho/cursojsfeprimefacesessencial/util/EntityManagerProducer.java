@@ -6,17 +6,14 @@ import jakarta.enterprise.inject.Disposes;
 import jakarta.enterprise.inject.Produces;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @ApplicationScoped
+@AllArgsConstructor
+@NoArgsConstructor
 public class EntityManagerProducer {
     private EntityManagerFactory entityManagerFactory;
-
-    public EntityManagerProducer(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
-    }
-
-    public EntityManagerProducer() {
-    }
 
     @Produces
     @RequestScoped

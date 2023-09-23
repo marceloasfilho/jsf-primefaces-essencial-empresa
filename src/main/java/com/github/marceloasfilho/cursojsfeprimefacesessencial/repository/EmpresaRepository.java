@@ -4,14 +4,14 @@ import com.github.marceloasfilho.cursojsfeprimefacesessencial.model.Empresa;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 public class EmpresaRepository implements Serializable {
     @Serial

@@ -11,4 +11,12 @@
         <servlet-name>helloServlet</servlet-name>
         <url-pattern>/hello-servlet</url-pattern>
     </servlet-mapping>
+    <resource-env-ref>
+        <resource-env-ref-name>BeanManager</resource-env-ref-name>
+        <resource-env-ref-type>jakarta.enterprise.inject.spi.BeanManager</resource-env-ref-type>
+    </resource-env-ref>
+
+    <listener>
+        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+    </listener>
 </web-app>

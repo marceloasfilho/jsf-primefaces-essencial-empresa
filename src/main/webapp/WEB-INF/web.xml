@@ -6,7 +6,7 @@
     <display-name>curso-jsf-e-primefaces-essencial</display-name>
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>gestao-empresas.xhtml</welcome-file>
     </welcome-file-list>
 
     <context-param>

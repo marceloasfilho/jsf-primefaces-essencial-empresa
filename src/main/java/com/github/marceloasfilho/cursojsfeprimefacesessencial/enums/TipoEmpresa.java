@@ -1,5 +1,10 @@
 package com.github.marceloasfilho.cursojsfeprimefacesessencial.enums;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public enum TipoEmpresa {
     MEI("Microempreendedor Individual"),
     EIRELI("Empresa Individual de Responsabilidade Limitada"),
@@ -7,12 +12,4 @@ public enum TipoEmpresa {
     SA("Sociedade Anônima");
 
     private final String descricao;
-
-    TipoEmpresa(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getDescricao() {
-        return this.descricao;
-    }
 }

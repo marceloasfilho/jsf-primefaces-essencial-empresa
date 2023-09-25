@@ -2,6 +2,7 @@ package com.github.marceloasfilho.cursojsfeprimefacesessencial.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.github.marceloasfilho.cursojsfeprimefacesessencial.enums.TipoEmpresa;
+import jakarta.enterprise.inject.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CNPJ;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "empresa")
 @Data
+@Model
 public class Empresa implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;

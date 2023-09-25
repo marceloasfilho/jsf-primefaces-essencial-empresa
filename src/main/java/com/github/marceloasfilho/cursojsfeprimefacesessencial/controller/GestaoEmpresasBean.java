@@ -26,4 +26,8 @@ public class GestaoEmpresasBean implements Serializable {
     public void salvar() {
         System.out.println("Razão Social: " + this.empresa.getRazaoSocial());
     }
+
+    public String ajuda(){
+        return "gestao-empresas-ajuda.xhtml";
+    }
 }

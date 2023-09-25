@@ -28,6 +28,6 @@ public class GestaoEmpresasBean implements Serializable {
     }
 
     public String ajuda(){
-        return "gestao-empresas-ajuda.xhtml";
+        return "gestao-empresas-ajuda.xhtml?faces-redirect=true";
     }
 }

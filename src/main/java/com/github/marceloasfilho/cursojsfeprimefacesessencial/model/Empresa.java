@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -37,4 +38,6 @@ public class Empresa implements Serializable {
     @ManyToOne
     @JoinColumn(name = "ramo_atividade_id", nullable = false)
     private RamoAtividade ramoAtividade;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal faturamento;
 }

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta charset="UTF-8"/>
         <title>Gestão Empresas</title>
@@ -11,82 +12,77 @@
         <div id="conteudo">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="CNPJ: " for="cnpj"/>
+                    <p:outputLabel value="CNPJ: " for="cnpj"/>
                     <h:panelGroup>
-                        <h:inputText id="cnpj" value="#{gestaoEmpresasBean.empresa.cnpj}" required="true" label="CNPJ">
+                        <p:inputText id="cnpj" value="#{gestaoEmpresasBean.empresa.cnpj}" required="true" label="CNPJ">
                             <f:validateLength minimum="18" maximum="18"/>
-                        </h:inputText>
-                        <h:message for="cnpj"/>
+                        </p:inputText>
+                        <p:message for="cnpj"/>
                     </h:panelGroup>
 
-                    <h:outputLabel value="Razão Social: " for="razaoSocial"/>
+                    <p:outputLabel value="Razão Social: " for="razaoSocial"/>
                     <h:panelGroup>
-                        <h:inputText id="razaoSocial" value="#{gestaoEmpresasBean.empresa.razaoSocial}" required="true" label="Razão Social"/>
-                        <h:message for="razaoSocial"/>
+                        <p:inputText id="razaoSocial" value="#{gestaoEmpresasBean.empresa.razaoSocial}" required="true" label="Razão Social"/>
+                        <p:message for="razaoSocial"/>
                     </h:panelGroup>
 
-                    <h:outputLabel value="Nome Fantasia: " for="nomeFantasia"/>
-                    <h:inputText id="nomeFantasia" value="#{gestaoEmpresasBean.empresa.nomeFantasia}" required="true" label="Nome Fantasia"/>
+                    <p:outputLabel value="Nome Fantasia: " for="nomeFantasia"/>
+                    <p:inputText id="nomeFantasia" value="#{gestaoEmpresasBean.empresa.nomeFantasia}" required="true" label="Nome Fantasia"/>
 
-                    <h:outputLabel value="Tipo Empresa: " for="tipoEmpresa"/>
+                    <p:outputLabel value="Tipo Empresa: " for="tipoEmpresa"/>
                     <h:panelGroup>
-                        <h:selectOneMenu id="tipoEmpresa" value="#{gestaoEmpresasBean.empresa.tipoEmpresa}" label="Tipo de Empresa" required="true">
+                        <p:selectOneMenu id="tipoEmpresa" value="#{gestaoEmpresasBean.empresa.tipoEmpresa}" label="Tipo de Empresa" required="true">
                             <f:selectItem itemLabel="Selecione..."/>
                             <f:selectItems value="#{gestaoEmpresasBean.tiposEmpresa}"
                                            var="tipoEmpresa" itemLabel="#{tipoEmpresa.descricao}" itemValue="#{tipoEmpresa}"/>
-                        </h:selectOneMenu>
-                        <h:message for="tipoEmpresa"/>
+                        </p:selectOneMenu>
+                        <p:message for="tipoEmpresa"/>
                     </h:panelGroup>
 
-                    <h:outputLabel value="Data de Fundação: " for="dataFundacao"/>
+                    <p:outputLabel value="Data de Fundação: " for="dataFundacao"/>
                     <h:panelGroup>
-                        <h:inputText id="dataFundacao" value="#{gestaoEmpresasBean.empresa.dataFundacao}"  required="true" label="Data Fundação">
+                        <p:inputText id="dataFundacao" value="#{gestaoEmpresasBean.empresa.dataFundacao}"  required="true" label="Data Fundação">
                             <f:convertDateTime type="localDate" pattern="dd/MM/yyyy"/>
-                        </h:inputText>
-                        <h:message for="dataFundacao"/>
+                        </p:inputText>
+                        <p:message for="dataFundacao"/>
                     </h:panelGroup>
 
-                    <h:outputLabel value="Faturamento: " for="faturamento"/>
+                    <p:outputLabel value="Faturamento: " for="faturamento"/>
                     <h:panelGroup>
-                        <h:inputText id="faturamento" value="#{gestaoEmpresasBean.empresa.faturamento}" required="true" label="Faturamento">
+                        <p:inputText id="faturamento" value="#{gestaoEmpresasBean.empresa.faturamento}" required="true" label="Faturamento">
                             <f:convertNumber pattern="#,##0.00"/>
                             <f:validateDoubleRange minimum="0"/>
-                        </h:inputText>
-                        <h:message for="faturamento"/>
+                        </p:inputText>
+                        <p:message for="faturamento"/>
                     </h:panelGroup>
 
-                    <h:outputLabel/>
-                    <h:commandButton value="Salvar" actionListener="#{gestaoEmpresasBean.salvar}"/>
+                    <p:outputLabel/>
+                    <p:commandButton value="Salvar" actionListener="#{gestaoEmpresasBean.salvar}"
+                    update="@form"/>
 
-                    <h:outputLabel/>
-                    <h:commandLink value="Ajuda" action="gestao-empresas-ajuda"/>
+                    <p:outputLabel/>
+                    <p:commandLink value="Ajuda" action="gestao-empresas-ajuda"/>
                 </h:panelGrid>
-                <h:dataTable value="#{[0, 0, 0, 0]}">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Razão Social"/>
-                        </f:facet>
-                        <h:outputText value="Neurotech Tecnologia da Informação"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Nome Fantasia"/>
-                        </f:facet>
-                        <h:outputText value="Neurotech"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Tipo Empresa"/>
-                        </f:facet>
-                        <h:outputText value="LTDA"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Tipo Empresa"/>
-                        </f:facet>
-                        <h:outputText value="LTDA"/>
-                    </h:column>
-                </h:dataTable>
+                <p:dataTable value="#{[0, 0, 0, 0, 0, 0]}">
+                    <p:column headerText="CNPJ">
+                        <h:outputText value="05.359.081/0001-34"/>
+                    </p:column>
+                    <p:column headerText="Razão Social">
+                        <h:outputText value="NEUROTECH TECNOLOGIA DA INFORMACAO S.A."/>
+                    </p:column>
+                    <p:column headerText="Nome Fantasia">
+                        <h:outputText value="NEUROTECH"/>
+                    </p:column>
+                    <p:column headerText="Tipo Empresa">
+                        <h:outputText value="SA"/>
+                    </p:column>
+                    <p:column headerText="Data de Fundação">
+                        <h:outputText value="07/01/2014"/>
+                    </p:column>
+                    <p:column headerText="Faturamento">
+                        <h:outputText value="R$ 60.632.040,96"/>
+                    </p:column>
+                </p:dataTable>
             </h:form>
         </div>
     </h:body>

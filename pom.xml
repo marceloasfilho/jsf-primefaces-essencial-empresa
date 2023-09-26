@@ -97,6 +97,14 @@
             <artifactId>omnifaces</artifactId>
             <version>4.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>13.0.1</version>
+            <scope>compile</scope>
+            <classifier>jakarta</classifier>
+        </dependency>
+
     </dependencies>
 
     <build>

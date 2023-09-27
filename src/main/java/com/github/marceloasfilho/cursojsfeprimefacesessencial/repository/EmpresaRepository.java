@@ -1,18 +1,16 @@
 package com.github.marceloasfilho.cursojsfeprimefacesessencial.repository;
 
 import com.github.marceloasfilho.cursojsfeprimefacesessencial.model.Empresa;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@ApplicationScoped
 public class EmpresaRepository implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -23,9 +21,14 @@ public class EmpresaRepository implements Serializable {
         return this.entityManager.find(Empresa.class, id);
     }
 
-    public List<Empresa> findAll(String nome) {
+    public List<Empresa> findAllByName(String nome) {
         TypedQuery<Empresa> query = this.entityManager.createQuery("from Empresa where nomeFantasia like :nomeFantasia", Empresa.class);
         query.setParameter("nomeFantasia", nome.concat("%"));
+        return query.getResultList();
+    }
+
+    public List<Empresa> findAll() {
+        TypedQuery<Empresa> query = this.entityManager.createQuery("from Empresa", Empresa.class);
         return query.getResultList();
     }
 

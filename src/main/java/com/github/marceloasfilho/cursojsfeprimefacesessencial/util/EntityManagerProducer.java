@@ -6,23 +6,19 @@ import jakarta.enterprise.inject.Disposes;
 import jakarta.enterprise.inject.Produces;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Persistence;
 
 @ApplicationScoped
-@AllArgsConstructor
-@NoArgsConstructor
 public class EntityManagerProducer {
-    private EntityManagerFactory entityManagerFactory;
+    private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu-empresa");
 
     @Produces
     @RequestScoped
-    public EntityManager createEntityManager() {
-        return this.entityManagerFactory.createEntityManager();
+    public EntityManager getEntityManager() {
+        return entityManagerFactory.createEntityManager();
     }
 
-    public void closeEntityManager(@Disposes EntityManager entityManager) {
-        entityManager.close();
+    public void close(@Disposes EntityManager em) {
+        em.close();
     }
-
 }

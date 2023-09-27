@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Cadastro de Empresas</title>
+    </h:head>
+
+    <f:metadata>
+        <f:viewAction action="#{cadastroEmpresaBean.todasEmpresas()}"/>
+    </f:metadata>
+
+    <h:body>
+        <h1>Cadastro de Empresas</h1>
+        <div id="conteudo">
+            <p:dataTable value="#{cadastroEmpresaBean.todasEmpresas}"
+            var="empresa" emptyMessage="Nenhuma informação a ser exibida">
+                <p:column headerText="CNPJ">
+                    <h:outputText value="#{empresa.cnpj}"/>
+                </p:column>
+                <p:column headerText="Razão Social">
+                    <h:outputText value="#{empresa.razaoSocial}"/>
+                </p:column>
+                <p:column headerText="Nome Fantasia">
+                    <h:outputText value="#{empresa.nomeFantasia}"/>
+                </p:column>
+                <p:column headerText="Tipo de Empresa">
+                    <h:outputText value="#{empresa.tipoEmpresa.descricao}"/>
+                </p:column>
+                <p:column headerText="Ramo de Atividade">
+                    <h:outputText value="#{empresa.ramoAtividade.descricao}"/>
+                </p:column>
+                <p:column headerText="Data de Fundação">
+                    <h:outputText value="#{empresa.dataFundacao}"/>
+                </p:column>
+                <p:column headerText="Faturamento">
+                    <h:outputText value="#{empresa.faturamento}"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:body>
+</html>

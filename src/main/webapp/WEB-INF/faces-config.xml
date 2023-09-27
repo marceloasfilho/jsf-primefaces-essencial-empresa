@@ -9,21 +9,4 @@
             <default-locale>pt-BR</default-locale>
         </locale-config>
     </application>
-
-    <navigation-rule>
-        <from-view-id>/gestao-empresas.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>gestao-empresas-ajuda</from-outcome>
-            <to-view-id>/gestao-empresas-ajuda.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/gestao-empresas-ajuda.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>gestao-empresas-voltar</from-outcome>
-            <to-view-id>/gestao-empresas.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
 </faces-config>

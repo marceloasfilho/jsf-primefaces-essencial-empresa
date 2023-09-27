@@ -4,9 +4,10 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
     <display-name>curso-jsf-e-primefaces-essencial</display-name>
+    <description>Curso JSF e PrimeFaces para Gestão de Empresas</description>
 
     <welcome-file-list>
-        <welcome-file>gestao-empresas.xhtml</welcome-file>
+        <welcome-file>cadastro-empresas.xhtml</welcome-file>
     </welcome-file-list>
 
     <context-param>
@@ -19,14 +20,6 @@
         <param-name>jakarta.faces.FACELETS_REFRESH_PERIOD</param-name>
         <param-value>0</param-value>
     </context-param>
-    <servlet>
-        <servlet-name>helloServlet</servlet-name>
-        <servlet-class>com.github.marceloasfilho.cursojsfeprimefacesessencial.HelloServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>helloServlet</servlet-name>
-        <url-pattern>/hello-servlet</url-pattern>
-    </servlet-mapping>
     <resource-env-ref>
         <resource-env-ref-name>BeanManager</resource-env-ref-name>
         <resource-env-ref-type>jakarta.enterprise.inject.spi.BeanManager</resource-env-ref-type>
@@ -35,16 +28,16 @@
         <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
     </listener>
     <servlet>
-        <servlet-name>facesServlet</servlet-name>
+        <servlet-name>servlet</servlet-name>
         <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>facesServlet</servlet-name>
+        <servlet-name>servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
     <context-param>
         <param-name>org.omnifaces.FACES_VIEWS_SCAN_PATHS</param-name>
-        <param-value>/*.xhtml</param-value>
+        <param-value>*.xhtml</param-value>
     </context-param>
 </web-app>

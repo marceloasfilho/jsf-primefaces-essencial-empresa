@@ -14,32 +14,41 @@
     </f:metadata>
 
     <h:body>
+        <p:graphicImage value="logo.png" library="algaworks"/>
+
         <h1>Cadastro de Empresas</h1>
         <div id="conteudo">
-            <p:dataTable value="#{cadastroEmpresaBean.todasEmpresas}"
-            var="empresa" emptyMessage="Nenhuma informação a ser exibida">
-                <p:column headerText="CNPJ">
-                    <h:outputText value="#{empresa.cnpj}"/>
-                </p:column>
-                <p:column headerText="Razão Social">
-                    <h:outputText value="#{empresa.razaoSocial}"/>
-                </p:column>
-                <p:column headerText="Nome Fantasia">
-                    <h:outputText value="#{empresa.nomeFantasia}"/>
-                </p:column>
-                <p:column headerText="Tipo de Empresa">
-                    <h:outputText value="#{empresa.tipoEmpresa.descricao}"/>
-                </p:column>
-                <p:column headerText="Ramo de Atividade">
-                    <h:outputText value="#{empresa.ramoAtividade.descricao}"/>
-                </p:column>
-                <p:column headerText="Data de Fundação">
-                    <h:outputText value="#{empresa.dataFundacao}"/>
-                </p:column>
-                <p:column headerText="Faturamento">
-                    <h:outputText value="#{empresa.faturamento}"/>
-                </p:column>
-            </p:dataTable>
+
+            <h:form>
+                <p:dataTable value="#{cadastroEmpresaBean.todasEmpresas}"
+                             var="empresa" emptyMessage="Nenhuma informação a ser exibida"
+                             paginator="true" rows="10" paginatorPosition="bottom">
+                    <p:column headerText="CNPJ">
+                        <h:outputText value="#{empresa.cnpj}"/>
+                    </p:column>
+                    <p:column headerText="Razão Social" sortBy="#{empresa.razaoSocial}">
+                        <h:outputText value="#{empresa.razaoSocial}"/>
+                    </p:column>
+                    <p:column headerText="Nome Fantasia">
+                        <h:outputText value="#{empresa.nomeFantasia}"/>
+                    </p:column>
+                    <p:column headerText="Tipo de Empresa">
+                        <h:outputText value="#{empresa.tipoEmpresa.descricao}"/>
+                    </p:column>
+                    <p:column headerText="Ramo de Atividade">
+                        <h:outputText value="#{empresa.ramoAtividade.descricao}"/>
+                    </p:column>
+                    <p:column headerText="Data de Fundação">
+                        <h:outputText value="#{empresa.dataFundacao}"/>
+                    </p:column>
+                    <p:column headerText="Faturamento">
+                        <h:outputText value="#{empresa.faturamento}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
         </div>
+        <footer>
+            Curso online "JSF e PrimeFaces Essencial"
+        </footer>
     </h:body>
 </html>
